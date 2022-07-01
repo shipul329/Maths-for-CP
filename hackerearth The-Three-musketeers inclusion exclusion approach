@@ -1,0 +1,99 @@
+/// https://www.hackerearth.com/problem/algorithm/the-three-musketeers-6efd5f2d/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+bool isvowel(char ch)
+{
+	return ch=='a' || ch=='e' || ch=='i' || ch=='o'
+	|| ch=='u';
+}
+
+vector<string>sub(string s)
+{
+	int n=(1<<s.size());
+
+	vector<string>ans;
+
+	for(int i=0; i<n; i++)
+	{
+		string ss;
+
+		for(int bit=0; bit<s.size(); bit++)
+		{
+			if(i&(1<<bit))
+			ss.push_back(s[bit]);
+		}
+
+		if(ss.size())ans.push_back(ss);
+	}
+
+	return ans;
+}
+
+int main() {
+	
+	int t;
+	cin >> t;
+
+	while(t--)
+	{
+		int n;
+		cin >> n;
+
+		string s[n];
+
+		for(int i=0; i<n; i++)
+		{
+			cin >> s[i];
+		}
+
+		unordered_map<string, int> mp; ///for combination of vowel 
+
+		for(int i=0; i<n; i++)
+		{
+			set<char>st;
+
+			for(char ch:s[i])
+			{
+				if(isvowel(ch))
+				{
+					st.insert(ch);
+				}
+			}
+
+			string vlst;
+
+			for(char ch:st)
+			vlst.push_back(ch);
+
+			vector<string>all_sub=sub(vlst);
+
+			for(string vss:all_sub)
+			mp[vss]++;
+		}
+
+		ll ans=0;
+
+		for(auto &it:mp)
+		{
+			if(it.second < 3) continue;
+
+			ll fs=it.second;
+
+			ll ways=fs*(fs-1)*(fs-2)/6;
+
+			if(it.first.size()%2==0){
+			ans-=ways;
+			}
+
+			else ans+=ways;
+		}
+
+		cout << ans << '\n';
+	}
+
+	return 0;
+}
