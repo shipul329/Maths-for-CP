@@ -1,3 +1,4 @@
+/*
 * How to quantify the efficiency of a programme?
 * Memory
 * Time taken
@@ -43,6 +44,8 @@ and space complexity is O(1)
 
 *** You are given two arrays A, B of size N. Now for all i, j you have to calculate sum (Ai, Bj).
 
+*/
+
 /// iterative approach (approach 1)
 
 int sum(vector<int>A, vector<int>B)
@@ -61,8 +64,8 @@ int sum(vector<int>A, vector<int>B)
      return ans;
  }
  
- ** so the time complexity is O(n*n) 
- ** and extra memory we have used so the space complexity is O(1)
+ // ** so the time complexity is O(n*n) 
+//  ** and extra memory we have used so the space complexity is O(1)
  
  /// approach 2
  
@@ -93,8 +96,8 @@ int sum(vector<int>A, vector<int>B)
      return ans;
  }
  
- ** so the time complexity is O((n*n)+(n*n)) -> O(2(n*n)) which is O(n*n)
- ** and the space complexity also O(n*n)
+ // ** so the time complexity is O((n*n)+(n*n)) -> O(2(n*n)) which is O(n*n)
+//  ** and the space complexity also O(n*n)
  
  /// approach 3 
  
@@ -112,7 +115,7 @@ int sum(vector<int>A, vector<int>B)
      return asum*bsum;
  }
 
- so the time complexity is O(n+n) -> O(2n) which is O(n)
- and the space complexity also O(1+1) which is O(1)
+// so the time complexity is O(n+n) -> O(2n) which is O(n)
+// and the space complexity also O(1+1) which is O(1)
  
- for the same problem if we compare approach 1, approach 2 and approach 3 then approach 3 is much better. that's why we should care about it.
+// for the same problem if we compare approach 1, approach 2 and approach 3 then approach 3 is much better. that's why we should care about it.
